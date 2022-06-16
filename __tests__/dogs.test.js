@@ -21,6 +21,7 @@ describe('dog routes', () => {
   it('/dogs/:id should return dog details', async () => {
     const res = await request(app).get('/dogs/2');
     const expected = { 
+      id: '2',
       name: 'Tate', 
       age: 2, 
       iq: 115, 

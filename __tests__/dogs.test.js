@@ -9,12 +9,23 @@ describe('dog routes', () => {
     return setup(pool);
   });
 
-  it('dogs should return a list of dogs', async () => {
+  it('/dogs should return a list of dogs', async () => {
     const res = await request(app).get('/dogs');
     const dogsData = Dogs.getAll();
     const expected = (await dogsData).map((dog) => {
       return { name: dog.name, age: dog.age, iq: dog.iq, energy: dog.energy };
     });
+    expect(res.body).toEqual(expected);
+  });
+
+  it('/dogs/:id should return dog details', async () => {
+    const res = await request(app).get('/dogs/2');
+    const expected = { 
+      name: 'Tate', 
+      age: 2, 
+      iq: 115, 
+      energy: 'medium',
+    };
     expect(res.body).toEqual(expected);
   });
 

@@ -9,6 +9,18 @@ describe('shows routes', () => {
     return setup(pool);
   });
 
+  it('/POST /shows should create a new show', async () => {
+    const res = await request(app).post('/shows').send({
+      title: 'The Dropout',
+      seasons: 1, 
+      rating: 9,
+    });
+    expect(res.status).toEqual(200);
+    expect(res.body.title).toEqual('The Dropout');
+    expect(res.body.seasons).toEqual(1);
+    expect(res.body.rating).toEqual(9);
+  });
+
   it('shows/:id returns a single show detail', async () => {
     const res = await request(app).get('/shows/2');
     const expected = {

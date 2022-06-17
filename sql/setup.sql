@@ -2,6 +2,7 @@
 -- The SQL in this file will be executed when you run `npm run setup-db`
 
 DROP table if exists dogs;
+DROP table if exists shows;
 
 CREATE table dogs (
     id BIGINT GENERATED ALWAYS AS IDENTITY,

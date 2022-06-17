@@ -4,9 +4,20 @@ const request = require('supertest');
 const app = require('../lib/app');
 const Shows = require('../lib/models/Shows');
 
-describe('backend-express-template routes', () => {
+describe('shows routes', () => {
   beforeEach(() => {
     return setup(pool);
+  });
+
+  it('shows/:id returns a single show detail', async () => {
+    const res = await request(app).get('/shows/2');
+    const expected = {
+      id: '2',
+      title: 'Tayo',
+      seasons: 7,
+      rating: 3,
+    };
+    expect(res.body).toEqual(expected); 
   });
 
   it('/shows returns an array of shows', async () => {

@@ -11,8 +11,21 @@ CREATE table dogs (
     energy VARCHAR NOT NULL
 );
 
+CREATE table shows (
+    id BIGINT GENERATED ALWAYS AS IDENTITY,
+    title VARCHAR NOT NULL,
+    seasons INT NOT NULL,
+    rating INT NOT NULL
+)
+
 INSERT INTO dogs (name, age, iq, energy) VALUES
 ('Chance', 7, 60, 'high'),
 ('Tate', 2, 115, 'medium'),
 ('Harley', 4, 110, 'low'),
 ('Tess', 1, 130, 'high');
+
+INSERT INTO shows (title, seasons, rating) VALUES
+('Schitts Creek', 5, 10),
+('Tayo', 7, 3),
+('The Great British Baking Show', 8, 10),
+('The Office', 11, 10);

@@ -38,6 +38,10 @@ describe('dog routes', () => {
       energy: 'low',
     });
     expect(res.status).toEqual(200);
+    expect(res.body.name).toEqual('French');
+    expect(res.body.age).toEqual(4);
+    expect(res.body.iq).toEqual(114);
+    expect(res.body.energy).toEqual('low');
   });
 
   afterAll(() => {

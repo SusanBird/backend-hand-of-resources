@@ -9,6 +9,13 @@ describe('shows routes', () => {
     return setup(pool);
   });
   
+  it('DELETE /shows/:id should delete a show', async () => {
+    const res = await request(app).delete('/shows/1');
+    expect(res.status).toEqual(200);
+    const { body } = await request(app).get('/shows/1');
+    expect(body).toEqual(null);
+  });
+
   it('PATCH /shows/:id should update show', async () => {
     const res = await request(app)
       .patch('/shows/2')

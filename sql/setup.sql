@@ -16,7 +16,7 @@ CREATE table shows (
     title VARCHAR NOT NULL,
     seasons INT NOT NULL,
     rating INT NOT NULL
-)
+);
 
 INSERT INTO dogs (name, age, iq, energy) VALUES
 ('Chance', 7, 60, 'high'),

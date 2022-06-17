@@ -53,11 +53,11 @@ describe('dog routes', () => {
   });
 
   it('DELETE /dogs/:id should delete a dog', async () => {
-    const res = await request(app).delete('/dogs/4');
+    const res = await request(app).delete('/dogs/1');
     expect(res.status).toEqual(200);
 
-    const { body } = await request(app).get('/dogs/2');
-    expect(body).toEqual({});
+    const { body } = await request(app).get('/dogs/1');
+    expect(body).toEqual(null);
   });
 
   afterAll(() => {

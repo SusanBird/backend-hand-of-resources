@@ -44,6 +44,14 @@ describe('dog routes', () => {
     expect(res.body.energy).toEqual('low');
   });
 
+  it('PATCH /dogs/:id should update dog', async () => {
+    const res = await request(app)
+      .patch('/dogs/3')
+      .send({ age: 3 });
+    expect(res.status).toEqual(200);
+    expect(res.body.age).toEqual(3);
+  });
+
   afterAll(() => {
     pool.end();
   });

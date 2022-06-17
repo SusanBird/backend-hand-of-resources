@@ -8,6 +8,14 @@ describe('shows routes', () => {
   beforeEach(() => {
     return setup(pool);
   });
+  
+  it('PATCH /shows/:id should update show', async () => {
+    const res = await request(app)
+      .patch('/shows/2')
+      .send({ rating: 1 });
+    expect(res.status).toEqual(200);
+    expect(res.body.rating).toEqual(1);
+  });
 
   it('/POST /shows should create a new show', async () => {
     const res = await request(app).post('/shows').send({

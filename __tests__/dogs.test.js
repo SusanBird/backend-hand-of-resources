@@ -52,6 +52,14 @@ describe('dog routes', () => {
     expect(res.body.age).toEqual(3);
   });
 
+  it('DELETE /dogs/:id should delete a dog', async () => {
+    const res = await request(app).delete('/dogs/4');
+    expect(res.status).toEqual(200);
+
+    const { body } = await request(app).get('/dogs/2');
+    expect(body).toEqual({});
+  });
+
   afterAll(() => {
     pool.end();
   });

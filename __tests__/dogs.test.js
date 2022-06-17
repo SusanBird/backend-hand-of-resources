@@ -30,6 +30,16 @@ describe('dog routes', () => {
     expect(res.body).toEqual(expected);
   });
 
+  it('POST /dogs should create a new dog', async () => {
+    const res = await request(app).post('/dogs').send({
+      name: 'French', 
+      age: 4, 
+      iq: 114, 
+      energy: 'low',
+    });
+    expect(res.status).toEqual(200);
+  });
+
   afterAll(() => {
     pool.end();
   });

@@ -9,6 +9,18 @@ describe('song routes', () => {
     return setup(pool);
   });
 
+  it('/POST /songs should create a new song', async () => {
+    const res = await request(app).post('/songs').send({
+      title: 'Grace Kelly',
+      artist: 'Mika',
+      released: 2007,
+    });
+    expect(res.status).toEqual(200);
+    expect(res.body.title).toEqual('Grace Kelly');
+    expect(res.body.artist).toEqual('Mika');
+    expect(res.body.released).toEqual(2007);
+  });
+
   it('/songs/:id should return details of a song', async () => {
     const res = await request(app).get('/songs/3');
     const expected = {

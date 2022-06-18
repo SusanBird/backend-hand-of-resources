@@ -9,6 +9,17 @@ describe('song routes', () => {
     return setup(pool);
   });
 
+  it('/songs/:id should return details of a song', async () => {
+    const res = await request(app).get('/songs/3');
+    const expected = {
+      id: '3',
+      title: 'Baby Shark',
+      artist: 'Someone Without A Soul',
+      released: 2020,
+    };
+    expect(res.body).toEqual(expected);
+  });
+
   it('/songs should return a list of songs', async () => {
     const res = await request(app).get('/songs');
     const songsData = Songs.getAll();

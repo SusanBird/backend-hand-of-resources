@@ -4,8 +4,8 @@
 DROP table if exists dogs;
 DROP table if exists shows;
 DROP table if exists songs;
-DROP table if exists games;
-DROP table if exists food;
+-- DROP table if exists games;
+-- DROP table if exists food;
 
 CREATE table dogs (
     id BIGINT GENERATED ALWAYS AS IDENTITY,
@@ -29,19 +29,19 @@ CREATE table songs (
     released INT NOT NULL
 );
 
-CREATE table games (
-    id BIGINT GENERATED ALWAYS AS IDENTITY,
-    name VARCHAR NOT NULL,
-    players INT NOT NULL,
-    difficulty INT NOT NULL
-);
+-- CREATE table games (
+--     id BIGINT GENERATED ALWAYS AS IDENTITY,
+--     name VARCHAR NOT NULL,
+--     players INT NOT NULL,
+--     difficulty INT NOT NULL
+-- );
 
-CREATE table food (
-    id BIGINT GENERATED ALWAYS AS IDENTITY,
-    name VARCHAR NOT NULL,
-    country VARCHAR NOT NULL,
-    group VARCHAR NOT NULL
-);
+-- CREATE table food (
+--     id BIGINT GENERATED ALWAYS AS IDENTITY,
+--     name VARCHAR NOT NULL,
+--     country VARCHAR NOT NULL,
+--     type VARCHAR NOT NULL
+-- );
 
 INSERT INTO dogs (name, age, iq, energy) VALUES
 ('Chance', 7, 60, 'high'),
@@ -61,14 +61,14 @@ INSERT INTO songs (title, artist, released) VALUES
 ('Baby Shark', 'Someone Without A Soul', 2020),
 ('Gangam Style', 'Mr. Gangham', 2012);
 
-INSERT INTO games (name, players, difficulty) VALUES
-('Cover Your Assets', 5, 3),
-('Monopoly', 4, 6),
-('Twister', 2, 10),
-('Sorry', 4, 3);
+-- INSERT INTO games (name, players, difficulty) VALUES
+-- ('Cover Your Assets', 5, 3),
+-- ('Monopoly', 4, 6),
+-- ('Twister', 2, 10),
+-- ('Sorry', 4, 3);
 
-INSERT INTO food (name, country, group) VALUES
-('bananas', 'Brazil', 'fruit'),
-('tacos', 'Mexico', 'meat'),
-('roti', 'Fiji', 'grains'),
-('lumpia', 'Philippines', 'vegetables');
+-- INSERT INTO food (name, country, type) VALUES
+-- ('bananas', 'Brazil', 'fruit'),
+-- ('tacos', 'Mexico', 'meat'),
+-- ('roti', 'Fiji', 'grains'),
+-- ('lumpia', 'Philippines', 'vegetables');

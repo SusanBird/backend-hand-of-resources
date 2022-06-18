@@ -13,7 +13,7 @@ describe('song routes', () => {
     const res = await request(app).get('/songs');
     const songsData = Songs.getAll();
     const expected = (await songsData).map((song) => {
-      return { name: song.name, age: song.age, iq: song.iq, energy: song.energy };
+      return { title: song.title, artist: song.artist, released: song.released };
     });
     expect(res.body).toEqual(expected);
   });

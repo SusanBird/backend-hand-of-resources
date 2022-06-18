@@ -29,12 +29,12 @@ CREATE table songs (
     released INT NOT NULL
 );
 
--- CREATE table games (
---     id BIGINT GENERATED ALWAYS AS IDENTITY,
---     name VARCHAR NOT NULL,
---     players INT NOT NULL,
---     difficulty INT NOT NULL
--- );
+CREATE table games (
+    id BIGINT GENERATED ALWAYS AS IDENTITY,
+    name VARCHAR NOT NULL,
+    players INT NOT NULL,
+    difficulty INT NOT NULL
+);
 
 -- CREATE table food (
 --     id BIGINT GENERATED ALWAYS AS IDENTITY,
@@ -61,11 +61,11 @@ INSERT INTO songs (title, artist, released) VALUES
 ('Baby Shark', 'Someone Without A Soul', 2020),
 ('Gangam Style', 'Mr. Gangham', 2012);
 
--- INSERT INTO games (name, players, difficulty) VALUES
--- ('Cover Your Assets', 5, 3),
--- ('Monopoly', 4, 6),
--- ('Twister', 2, 10),
--- ('Sorry', 4, 3);
+INSERT INTO games (name, players, difficulty) VALUES
+('Cover Your Assets', 5, 3),
+('Monopoly', 4, 6),
+('Twister', 2, 10),
+('Sorry', 4, 3);
 
 -- INSERT INTO food (name, country, type) VALUES
 -- ('bananas', 'Brazil', 'fruit'),

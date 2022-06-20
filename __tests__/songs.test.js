@@ -9,11 +9,17 @@ describe('song routes', () => {
     return setup(pool);
   });
 
+  it('DELETE /songs/:id should delete a song', async () => {
+    const res = await request(app).delete('/songs/1');
+    expect(res.status).toEqual(200);
+    const { body } = await request(app).get('/songs/1');
+    expect(body).toEqual(null);
+  });
+
   it('PATCH /songs/:id should update song', async () => {
     const res = await request(app)
       .patch('/songs/2')
-      .send({ rating: 1 });
-    expect(res.status).toEqual(200);
+      .send({ artist: 'The Beatles' });
     expect(res.body.artist).toEqual('The Beatles');
   });
 

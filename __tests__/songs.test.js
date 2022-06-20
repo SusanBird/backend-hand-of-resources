@@ -9,6 +9,14 @@ describe('song routes', () => {
     return setup(pool);
   });
 
+  it('PATCH /songs/:id should update song', async () => {
+    const res = await request(app)
+      .patch('/songs/2')
+      .send({ rating: 1 });
+    expect(res.status).toEqual(200);
+    expect(res.body.artist).toEqual('The Beatles');
+  });
+
   it('/POST /songs should create a new song', async () => {
     const res = await request(app).post('/songs').send({
       title: 'Grace Kelly',

@@ -12,7 +12,8 @@ describe('food routes', () => {
   it('/foods returns an array of foods', async () => {
     const res = await request(app).get('/foods');
     const foodData = Foods.getAll();
-    const expected = (await foodData).map((food) => { return { name: food.name, country: food.country, type:food.type };
+    const expected = (await foodData).map((food) => { 
+      return { name: food.name, country: food.country, type:food.type };
     });
     expect(res.body).toEqual(expected);
   });

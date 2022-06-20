@@ -5,7 +5,7 @@ DROP table if exists dogs;
 DROP table if exists shows;
 DROP table if exists songs;
 DROP table if exists games;
-DROP table if exists food;
+DROP table if exists foods;
 
 CREATE table dogs (
     id BIGINT GENERATED ALWAYS AS IDENTITY,
@@ -36,7 +36,7 @@ CREATE table games (
     difficulty INT NOT NULL
 );
 
-CREATE table food (
+CREATE table foods (
     id BIGINT GENERATED ALWAYS AS IDENTITY,
     name VARCHAR NOT NULL,
     country VARCHAR NOT NULL,
@@ -67,7 +67,7 @@ INSERT INTO games (name, players, difficulty) VALUES
 ('Twister', 2, 10),
 ('Sorry', 4, 3);
 
-INSERT INTO food (name, country, type) VALUES
+INSERT INTO foods (name, country, type) VALUES
 ('bananas', 'Brazil', 'fruit'),
 ('tacos', 'Mexico', 'meat'),
 ('roti', 'Fiji', 'grains'),

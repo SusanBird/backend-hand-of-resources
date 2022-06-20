@@ -9,6 +9,18 @@ describe('food routes', () => {
     return setup(pool);
   });
 
+  it('/POST /foods should create a new food', async () => {
+    const res = await request(app).post('/foods').send({
+      name: 'Twinkies',
+      country: 'USA', 
+      type: 'dessert',
+    });
+    expect(res.status).toEqual(200);
+    expect(res.body.name).toEqual('Twinkies');
+    expect(res.body.country).toEqual('USA');
+    expect(res.body.type).toEqual('dessert');
+  });
+
   it('PATCH /foods/:id should update food', async () => {
     const res = await request(app)
       .patch('/foods/2')

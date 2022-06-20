@@ -9,6 +9,17 @@ describe('games routes', () => {
     return setup(pool);
   });
 
+  it('/POST /games creates a new game', async () => {
+    const res = await request(app).post('/games').send({
+      name: 'Mafia',
+      players: 7, 
+      difficulty: 8,
+    });
+    expect(res.body.name).toEqual('Mafia');
+    expect(res.body.players).toEqual(7);
+    expect(res.body.difficulty).toEqual(8);
+  });
+
   it('/games/:id returns a single game with details', async () => {
     const res = await request(app).get('/games/2');
     const expected = {

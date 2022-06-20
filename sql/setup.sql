@@ -4,7 +4,7 @@
 DROP table if exists dogs;
 DROP table if exists shows;
 DROP table if exists songs;
--- DROP table if exists games;
+DROP table if exists games;
 -- DROP table if exists food;
 
 CREATE table dogs (

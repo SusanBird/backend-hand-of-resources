@@ -9,6 +9,17 @@ describe('food routes', () => {
     return setup(pool);
   });
 
+  it('/foods/:id returns a single food detail', async () => {
+    const res = await request(app).get('/games/2');
+    const expected = {
+      id: '2',
+      name: 'Tacos',
+      country: 'Mexico',
+      type: 'meat',
+    };
+    expect(res.body).toEqual(expected);
+  });
+
   it('/foods returns an array of foods', async () => {
     const res = await request(app).get('/foods');
     const foodData = Foods.getAll();

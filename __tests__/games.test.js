@@ -9,6 +9,11 @@ describe('games routes', () => {
     return setup(pool);
   });
 
+  it('/patch /games/:id updates a game', async () => {
+    const res = await request(app).patch('/games/3').send({ players: 4 });
+    expect(res.body.players).toEqual(4);
+  });
+
   it('/POST /games creates a new game', async () => {
     const res = await request(app).post('/games').send({
       name: 'Mafia',

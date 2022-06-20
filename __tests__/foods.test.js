@@ -9,6 +9,14 @@ describe('food routes', () => {
     return setup(pool);
   });
 
+  it('PATCH /foods/:id should update food', async () => {
+    const res = await request(app)
+      .patch('/foods/2')
+      .send({ country: 'Chile' });
+    expect(res.status).toEqual(200);
+    expect(res.body.country).toEqual('Chile');
+  });
+
   it('/foods/:id returns a single food detail', async () => {
     const res = await request(app).get('/foods/2');
     const expected = {

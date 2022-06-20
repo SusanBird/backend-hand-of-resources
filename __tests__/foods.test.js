@@ -9,6 +9,13 @@ describe('food routes', () => {
     return setup(pool);
   });
 
+  it('DELETE /foods/:id should delete a food', async () => {
+    const res = await request(app).delete('/foods/1');
+    expect(res.status).toEqual(200);
+    const { body } = await request(app).get('/foods/1');
+    expect(body).toEqual(null);
+  });
+
   it('/POST /foods should create a new food', async () => {
     const res = await request(app).post('/foods').send({
       name: 'Twinkies',

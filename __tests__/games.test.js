@@ -9,7 +9,14 @@ describe('games routes', () => {
     return setup(pool);
   });
 
-  it('/patch /games/:id updates a game', async () => {
+  it('DELETE /games/:id deletes a game', async () => {
+    const res = await request(app).delete('/games/4');
+    expect(res.status).toEqual(200);
+    const { body } =  await request(app).get('/games/4');
+    expect(body).toEqual(null);
+  });
+
+  it('PATCH /games/:id updates a game', async () => {
     const res = await request(app).patch('/games/3').send({ players: 4 });
     expect(res.body.players).toEqual(4);
   });

@@ -10,10 +10,10 @@ describe('food routes', () => {
   });
 
   it('/foods/:id returns a single food detail', async () => {
-    const res = await request(app).get('/games/2');
+    const res = await request(app).get('/foods/2');
     const expected = {
       id: '2',
-      name: 'Tacos',
+      name: 'tacos',
       country: 'Mexico',
       type: 'meat',
     };

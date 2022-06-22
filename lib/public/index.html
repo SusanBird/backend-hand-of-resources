@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="/styles.css" rel="stylesheet" />
-    <title>Bookshoppe</title>
+    <title>Hand of Resources</title>
   </head>
   <body>
     <main class="p-4 w-1/2 m-auto">
       <header id="header">
-        <h1 class="text-lg">Bookshoppe</h1>
+        <h1 class="text-lg">Hand of Resources</h1>
       </header>
       <table class="table border-2 mt-4">
         <thead class="table-header-group border-2">
@@ -22,66 +22,298 @@
           </tr>
         </thead>
         <tbody class="table-row-group">
+            <td>
+                <strong><h3>Dogs</h3></strong>
+              </td>
           <tr class="border-2">
-            <td class="table-cell p-3"><pre>/books</pre></td>
+            <td class="table-cell p-3"><pre>/dogs</pre></td>
             <td class="table-cell p-3 text-center">GET</td>
             <td class="table-cell p-3">
-              Gets a list of all books in the bookshoppe.
+              Gets a list of all dogs.
             </td>
             <td class="table-cell p-3">
-              <a href="/books" target="_blank" class="text-blue-700"
-                >List of Books</a
+              <a href="/dogs" target="_blank" class="text-blue-700"
+                >List of Dogs</a
               >
             </td>
           </tr>
           <tr class="border-2">
-            <td class="table-cell p-3"><pre>/books/1</pre></td>
+            <td class="table-cell p-3"><pre>/dogs/1</pre></td>
             <td class="table-cell p-3 text-center">GET</td>
             <td class="table-cell p-3">
-              Get a certain book with author info.
+              Get a certain dog's info.
             </td>
             <td class="table-cell p-3">
-              <a href="/books/1" target="_blank" class="text-blue-700"
-                >List One Book</a
+              <a href="/dogs/1" target="_blank" class="text-blue-700"
+                >List One Dog</a
               >
             </td>
           </tr>
           <tr class="border-2">
-            <td class="table-cell p-3"><pre>/authors</pre></td>
-            <td class="table-cell p-3 text-center">GET</td>
-            <td class="table-cell p-3">
-              Gets a list of all authors.
-            </td>
-            <td class="table-cell p-3">
-              <a href="/authors" target="_blank" class="text-blue-700"
-                >List Authors</a
-              >
-            </td>
-          </tr>
-          <tr class="border-2">
-            <td class="table-cell p-3"><pre>/authors/1</pre></td>
-            <td class="table-cell p-3 text-center">GET</td>
-            <td class="table-cell p-3">
-              Gets a certain author with book info.
-            </td>
-            <td class="table-cell p-3">
-              <a href="/authors/1" target="_blank" class="text-blue-700"
-                >List One Author</a
-              >
-            </td>
-          </tr>
-          <tr class="border-2">
-            <td class="table-cell p-3"><pre>/books</pre></td>
+            <td class="table-cell p-3"><pre>/dogs/</pre></td>
             <td class="table-cell p-3 text-center">POST</td>
-            <td class="table-cell p-3">Add book</td>
-            <td class="table-cell p-3"></td>
+            <td class="table-cell p-3">Adds a dog.</td>
+            <td class="table-cell p-3">
+              curl -d '{"name": "French", "age": "4", "iq": "114", "energy": "low"}' -H
+              'Content-Type: application/json'
+              'https://backend-hand-of-resources2.herokuapp.com/dogs'
+            </td>
           </tr>
           <tr class="border-2">
-            <td class="table-cell p-3"><pre>/authors</pre></td>
-            <td class="table-cell p-3 text-center">POST</td>
-            <td class="table-cell p-3">Add author</td>
-            <td class="table-cell p-3"></td>
+            <td class="table-cell p-3"><pre>/dogs/3</pre></td>
+            <td class="table-cell p-3 text-center">PUT</td>
+            <td class="table-cell p-3">Updates a dog.</td>
+            <td class="table-cell p-3">
+              curl -X PUT -H "Content-Type: application/json" -d
+              '{"age":"3"}'
+              https://backend-hand-of-resources2.herokuapp.com/dogs/3
+            </td>
           </tr>
+          <tr class="border-2">
+            <td class="table-cell p-3"><pre>/dogs/1</pre></td>
+            <td class="table-cell p-3 text-center">DELETE</td>
+            <td class="table-cell p-3">Deletes a dog.</td>
+            <td class="table-cell p-3">
+              curl -X DELETE
+              https://backend-hand-of-resources2.herokuapp.com/dogs/1 -H
+              "Accept: application/json"
+            </td>
+          </tr>
+
+          <td>
+            <strong><h3>Shows</h3></strong>
+          </td>
+      <tr class="border-2">
+        <td class="table-cell p-3"><pre>/shows</pre></td>
+        <td class="table-cell p-3 text-center">GET</td>
+        <td class="table-cell p-3">
+          Gets a list of all shows.
+        </td>
+        <td class="table-cell p-3">
+          <a href="/shows" target="_blank" class="text-blue-700"
+            >List of Shows</a
+          >
+        </td>
+      </tr>
+      <tr class="border-2">
+        <td class="table-cell p-3"><pre>/shows/2</pre></td>
+        <td class="table-cell p-3 text-center">GET</td>
+        <td class="table-cell p-3">
+          Get a certain show's info.
+        </td>
+        <td class="table-cell p-3">
+          <a href="/shows/2" target="_blank" class="text-blue-700"
+            >List One Show</a
+          >
+        </td>
+      </tr>
+      <tr class="border-2">
+        <td class="table-cell p-3"><pre>/shows/</pre></td>
+        <td class="table-cell p-3 text-center">POST</td>
+        <td class="table-cell p-3">Adds a show.</td>
+        <td class="table-cell p-3">
+          curl -d '{"title": "The Dropout", "seasons": "1", "rating": "9"}' -H
+          'Content-Type: application/json'
+          'https://backend-hand-of-resources2.herokuapp.com/shows'
+        </td>
+      </tr>
+      <tr class="border-2">
+        <td class="table-cell p-3"><pre>/shows/2</pre></td>
+        <td class="table-cell p-3 text-center">PUT</td>
+        <td class="table-cell p-3">Updates a show.</td>
+        <td class="table-cell p-3">
+          curl -X PUT -H "Content-Type: application/json" -d
+          '{"age":"2"}'
+          https://backend-hand-of-resources2.herokuapp.com/shows/
+        </td>
+      </tr>
+      <tr class="border-2">
+        <td class="table-cell p-3"><pre>/shows/1</pre></td>
+        <td class="table-cell p-3 text-center">DELETE</td>
+        <td class="table-cell p-3">Deletes a show.</td>
+        <td class="table-cell p-3">
+          curl -X DELETE
+          https://backend-hand-of-resources2.herokuapp.com/shows/1 -H
+          "Accept: application/json"
+        </td>
+      </tr>
+
+
+      <td>
+        <strong><h3>Songs</h3></strong>
+      </td>
+  <tr class="border-2">
+    <td class="table-cell p-3"><pre>/songs</pre></td>
+    <td class="table-cell p-3 text-center">GET</td>
+    <td class="table-cell p-3">
+      Gets a list of all songs.
+    </td>
+    <td class="table-cell p-3">
+      <a href="/songs" target="_blank" class="text-blue-700"
+        >List of Songs</a
+      >
+    </td>
+  </tr>
+  <tr class="border-2">
+    <td class="table-cell p-3"><pre>/songs/3</pre></td>
+    <td class="table-cell p-3 text-center">GET</td>
+    <td class="table-cell p-3">
+      Get a certain song's info.
+    </td>
+    <td class="table-cell p-3">
+      <a href="/songs/3" target="_blank" class="text-blue-700"
+        >List One Song</a
+      >
+    </td>
+  </tr>
+  <tr class="border-2">
+    <td class="table-cell p-3"><pre>/songs/</pre></td>
+    <td class="table-cell p-3 text-center">POST</td>
+    <td class="table-cell p-3">Adds a song.</td>
+    <td class="table-cell p-3">
+      curl -d '{"title": "Grace Kelly", "artist": "Mika", "released": "2007"}' -H
+      'Content-Type: application/json'
+      'https://backend-hand-of-resources2.herokuapp.com/songs'
+    </td>
+  </tr>
+  <tr class="border-2">
+    <td class="table-cell p-3"><pre>/songs/2</pre></td>
+    <td class="table-cell p-3 text-center">PATCH</td>
+    <td class="table-cell p-3">Updates a song.</td>
+    <td class="table-cell p-3">
+      curl -X PUT -H "Content-Type: application/json" -d
+      '{"artist":"The Beatles"}'
+      https://backend-hand-of-resources2.herokuapp.com/songs/2
+    </td>
+  </tr>
+  <tr class="border-2">
+    <td class="table-cell p-3"><pre>/songs/1</pre></td>
+    <td class="table-cell p-3 text-center">DELETE</td>
+    <td class="table-cell p-3">Deletes a song.</td>
+    <td class="table-cell p-3">
+      curl -X DELETE
+      https://backend-hand-of-resources2.herokuapp.com/songs/1 -H
+      "Accept: application/json"
+    </td>
+  </tr>
+
+
+  <td>
+    <strong><h3>Games</h3></strong>
+  </td>
+<tr class="border-2">
+<td class="table-cell p-3"><pre>/games</pre></td>
+<td class="table-cell p-3 text-center">GET</td>
+<td class="table-cell p-3">
+  Gets a list of all games.
+</td>
+<td class="table-cell p-3">
+  <a href="/games" target="_blank" class="text-blue-700"
+    >List of games</a
+  >
+</td>
+</tr>
+<tr class="border-2">
+<td class="table-cell p-3"><pre>/games/2</pre></td>
+<td class="table-cell p-3 text-center">GET</td>
+<td class="table-cell p-3">
+  Get a certain game's info.
+</td>
+<td class="table-cell p-3">
+  <a href="/games/2" target="_blank" class="text-blue-700"
+    >List One game</a
+  >
+</td>
+</tr>
+<tr class="border-2">
+<td class="table-cell p-3"><pre>/games/</pre></td>
+<td class="table-cell p-3 text-center">POST</td>
+<td class="table-cell p-3">Adds a game.</td>
+<td class="table-cell p-3">
+  curl -d '{"name": "Mafia", "players": "7", "difficulty": "8"}' -H
+  'Content-Type: application/json'
+  'https://backend-hand-of-resources2.herokuapp.com/games'
+</td>
+</tr>
+<tr class="border-2">
+<td class="table-cell p-3"><pre>/games/3</pre></td>
+<td class="table-cell p-3 text-center">PATCH</td>
+<td class="table-cell p-3">Updates a game.</td>
+<td class="table-cell p-3">
+  curl -X PUT -H "Content-Type: application/json" -d
+  '{"players":"4"}'
+  https://backend-hand-of-resources2.herokuapp.com/games/3
+</td>
+</tr>
+<tr class="border-2">
+<td class="table-cell p-3"><pre>/games/4</pre></td>
+<td class="table-cell p-3 text-center">DELETE</td>
+<td class="table-cell p-3">Deletes a game.</td>
+<td class="table-cell p-3">
+  curl -X DELETE
+  https://backend-hand-of-resources2.herokuapp.com/games/4 -H
+  "Accept: application/json"
+</td>
+</tr>
+
+<td>
+  <strong><h3>Foods</h3></strong>
+</td>
+<tr class="border-2">
+<td class="table-cell p-3"><pre>/foods</pre></td>
+<td class="table-cell p-3 text-center">GET</td>
+<td class="table-cell p-3">
+Gets a list of all foods.
+</td>
+<td class="table-cell p-3">
+<a href="/foods" target="_blank" class="text-blue-700"
+  >List of Foods</a
+>
+</td>
+</tr>
+<tr class="border-2">
+<td class="table-cell p-3"><pre>/foods/2</pre></td>
+<td class="table-cell p-3 text-center">GET</td>
+<td class="table-cell p-3">
+Get a certain food's info.
+</td>
+<td class="table-cell p-3">
+<a href="/foods/2" target="_blank" class="text-blue-700"
+  >List One Food</a
+>
+</td>
+</tr>
+<tr class="border-2">
+<td class="table-cell p-3"><pre>/foods/</pre></td>
+<td class="table-cell p-3 text-center">POST</td>
+<td class="table-cell p-3">Adds a food.</td>
+<td class="table-cell p-3">
+curl -d '{"name": "Twinkies", "country": "USA", "type": "dessert"}' -H
+'Content-Type: application/json'
+'https://backend-hand-of-resources2.herokuapp.com/foods'
+</td>
+</tr>
+<tr class="border-2">
+<td class="table-cell p-3"><pre>/foods/2</pre></td>
+<td class="table-cell p-3 text-center">PATCH</td>
+<td class="table-cell p-3">Updates a food.</td>
+<td class="table-cell p-3">
+curl -X PUT -H "Content-Type: application/json" -d
+'{"country":"Chile"}'
+https://backend-hand-of-resources2.herokuapp.com/foods/2
+</td>
+</tr>
+<tr class="border-2">
+<td class="table-cell p-3"><pre>/foods/1</pre></td>
+<td class="table-cell p-3 text-center">DELETE</td>
+<td class="table-cell p-3">Deletes a food.</td>
+<td class="table-cell p-3">
+curl -X DELETE
+https://backend-hand-of-resources2.herokuapp.com/foods/1 -H
+"Accept: application/json"
+</td>
+</tr>
+
         </tbody>
       </table>
     </main>
